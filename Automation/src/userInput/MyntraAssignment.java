@@ -1,5 +1,6 @@
 package userInput;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -13,16 +14,14 @@ public class MyntraAssignment {
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.myntra.com/");
-		Thread.sleep(3000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.findElement(By.xpath("//input[@class='desktop-searchBar']")).sendKeys("Shoes",Keys.ENTER);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//img[@title='Red Tape Men Perforated Slip Resistant Lace-Up Sneakers']")).click();
-//		List<WebElement>shoesName=driver.findElements(By.xpath("//img[@class='img-responsive']"));
-//		for(WebElement n:shoesName)
-//		{
-//			System.out.println(n.getText());
-//		}
-		driver.findElement(By.xpath(""))
+		Thread.sleep(4000);
+		WebElement price = driver.findElement(By.xpath("//h1[text()='Red Tape']/ancestor::div[@class='pdp-price-info']/descendant::span[@class='pdp-price']"));
+        String shoesprice=price.getText();
+        System.out.println(shoesprice);
 	}
 
 }
