@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class RunTimePolymorphism {
 	static WebDriver driver;
 	public static void main(String[] args) {
+		while(true) {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("Enter your browser");
 	String browser=sc.next();
@@ -30,6 +31,7 @@ public class RunTimePolymorphism {
 		System.out.println("Enter valid Browser");
 	}
   }
+}
 }
 	
 
