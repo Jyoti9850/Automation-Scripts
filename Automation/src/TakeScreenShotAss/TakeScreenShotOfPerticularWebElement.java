@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,12 +21,11 @@ public class TakeScreenShotOfPerticularWebElement {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 		driver.get("https://www.bluestone.com/");
 		driver.findElement(By.id("confirmBtn")).click();
-		Thread.sleep(2000);
-		WebElement goldcoin=driver.findElement(By.xpath("//a[text()='Gold Coins']"));
+		WebElement goldcoin=driver.findElement(By.xpath("//a[@title='Coins']"));
 		Actions act=new Actions(driver);
-		Thread.sleep(2000);
 		act.moveToElement(goldcoin).perform();
 		goldcoin.click();
+		Thread.sleep(2000);
 		WebElement coin=driver.findElement(By.xpath("//img[@alt='1 gram 24 KT Gold Coin']"));
 		File src=coin.getScreenshotAs(OutputType.FILE);
 		File dest=new File("./screenshot/coin.png");
