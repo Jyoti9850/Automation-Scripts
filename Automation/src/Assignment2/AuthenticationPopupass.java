@@ -45,7 +45,7 @@ public class AuthenticationPopupass {
 		//press tab
 		r.keyPress(KeyEvent.VK_TAB);
 		
-		//enter signin
+		//enter sign in
 		r.keyPress(KeyEvent.VK_ENTER);
 		
 		
